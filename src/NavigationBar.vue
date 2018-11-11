@@ -22,14 +22,14 @@
       <ul class="navbar-nav" id="zzz">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-user"></i> {{username}}
+            {{username}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="">Profile</a>
             <a class="dropdown-item" href="">Settings</a>
             <a class="dropdown-item" href="">My Submissions</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="">Log Out</a>
+            <a class="dropdown-item" href="" v-on:click="changeAuthentication">Log Out</a>
           </div>
         </li>
       </ul>
@@ -43,6 +43,11 @@
     data () {
       return {
         username: 'Guest'
+      }
+    },
+    methods: {
+      changeAuthentication () {
+        this.$parent.authenticated = false;
       }
     }
   }
@@ -68,7 +73,7 @@
   .navbar-nav > li > .dropdown-menu > .dropdown-item:hover {
     background-color: #202e3e;
   }
-  navbar-tooggler {
+  .navbar-toggler {
     color: white;
   }
   .custom-toggler.navbar-toggler {
